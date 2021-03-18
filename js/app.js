@@ -26,7 +26,7 @@ function addToDo(event) {
     const trashButton = document.createElement('button');
     trashButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
     trashButton.classList.add('trash-btn');
-    todoDiv.appendChild(completedButton); 
+    todoDiv.appendChild(trashButton); 
     // append to list
     todoList.appendChild(todoDiv);
 
