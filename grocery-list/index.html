@@ -11,6 +11,13 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <!-- font awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        />
+        <!-- styles -->
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -29,8 +36,27 @@
                 </div>
             </form>
             <!-- list -->
+            <div class="grocery-container">
+                <div class="grocery-list">
+                    <article class="grocery-item">
+                        <p class="title">item</p>
+                        <div class="btn-container">
+                            <button type="button" class="edit-btn">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="delete-btn">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+                <!-- button -->
+                <button type="button class="clear-btn"> clear items</button>
+            </div>
         </section>
         
+        <!-- javascript -->
+        <script src="app.js"></script>
         <script src="" async defer></script>
     </body>
 </html>
