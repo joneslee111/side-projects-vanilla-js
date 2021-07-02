@@ -58,7 +58,7 @@ function addItem(e) {
         setBackToDefault();
     } else if (value && editFlag) {
         editElement.innerHTML = value;
-        displayAlert('item changed', 'sucess');
+        displayAlert('item changed', 'success');
         // edit local storage
         editLocalStorage(editID, value);
         setBackToDefault();
@@ -139,6 +139,14 @@ function removeFromLocalStorage(id) {
 
 }
 function editLocalStorage(id, value) {
-    
+
 }
+
+// local storage api 
+// setItem
+// getItem 
+// removeItem
+// save as strings
+
+
 // ****** SETUP ITEMS **********
