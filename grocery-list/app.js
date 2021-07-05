@@ -23,12 +23,13 @@ function addItem(e) {
     e.preventDefault();
     const value = grocery.value;
     const id = new Date().getTime().toString();
-    if (value && !editFlag) {
+    
+    if (value !=='' && !editFlag) {
         const element = document.createElement('article');
         // add class
         element.classList.add('grocery-item');
         // add ID
-        const attr = document.createAttribute('data-id');
+        let attr = document.createAttribute('data-id');
         attr.value = id;
         element.setAttributeNode(attr);
         element.innerHTML = `   <p class="title">${value}</p>
@@ -133,24 +134,43 @@ function setBackToDefault() {
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value) {
     const grocery = { id:id, value:value };
-    let items = localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : [];
+    let items = getLocalStorage();
     
     items.push(grocery);
     localStorage.setItem('list', JSON.stringify(items));
 }
 
+function getLocalStorage() {
+    return localStorage.getItem('list')  ? JSON.parse(localStorage.getItem('list')) : [];
+}
+
 function removeFromLocalStorage(id) {
+    let items = getLocalStorage();
 
+    items = items.filter(function (item) { 
+        if (item.id !== id) {
+            return item; 
+        }
+    });
+    localStorage.setItem('list', JSON.stringify(items));
 }
+
 function editLocalStorage(id, value) {
-
+    let items = getLocalStorage();
+    items = items.map(function(item) {
+        if (item.id === id) {
+            item.value = value;
+        }
+        return item;
+    });
+    localStorage.setItem('list', JSON.stringify(items));
 }
+
 
 // local storage api 
 // setItem
 // getItem 
 // removeItem
 // save as strings
-localStorage.setItem('list', JSON.stringify(['item', 'item2' ]));
 
 // ****** SETUP ITEMS **********
